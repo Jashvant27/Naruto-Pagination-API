@@ -9,13 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+		TabView{
+			Text("Character View")
+				.tabItem {
+					Label(LocalizedStringKey("characters_label"), systemImage: "person")
+				}
+				.tag(0)
+			
+			Text("Clans View")
+				.tabItem {
+					Label(LocalizedStringKey("clans_label"), systemImage: "person.3")
+				}
+				.tag(1)
+		}
+		.onAppear{
+			UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
+		}
     }
 }
 
