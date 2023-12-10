@@ -8,7 +8,7 @@
 import Foundation
 
 struct Characters : Codable {
-	let characters : [Character]
+	let characters : [Character]?
 	let currentPage : Int
 	let pageSize : Int
 	let totalCharacters : Int

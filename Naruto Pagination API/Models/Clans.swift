@@ -6,7 +6,7 @@
 //
 
 struct Clans : Codable{
-	let clans : [Clan]
+	let clans : [Clan]?
 	let currentPage : Int
 	let pageSize : Int
 	let totalClans : Int
@@ -22,6 +22,6 @@ struct Clans : Codable{
 
 struct Clan: Codable, Identifiable{
 	let id: Int
-	let name: String
-	let character: [Character]
+	let name: String?
+	let character: [Character]?
 }
