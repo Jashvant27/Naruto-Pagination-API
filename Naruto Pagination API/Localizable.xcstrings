@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%lld" : {
+
+    },
     "characters_label" : {
       "extractionState" : "manual",
       "localizations" : {

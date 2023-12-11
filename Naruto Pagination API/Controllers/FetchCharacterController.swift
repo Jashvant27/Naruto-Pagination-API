@@ -9,7 +9,7 @@ import Foundation
 
 struct FetchCharacterController {
 	private let baseURL = URL(string: "https://narutodb.xyz/api/character")!
-	private let limit = 20
+	private let limit = 8
 	
 	func fetchCharacters(from page: Int) async throws -> Characters{
 		// Create URL components

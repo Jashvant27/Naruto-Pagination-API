@@ -20,8 +20,13 @@ struct Clans : Codable{
 	}
 }
 
-struct Clan: Codable, Identifiable{
+struct Clan: Codable, Identifiable, Hashable{
 	let id: Int
 	let name: String?
-	let character: [Character]?
+	let characters: [Character]?
 }
+
+enum ClanStatus {
+	case initial
+	case success(data: [Clan])
+	}

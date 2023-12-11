@@ -12,6 +12,13 @@ struct Characters : Codable {
 	let currentPage : Int
 	let pageSize : Int
 	let totalCharacters : Int
+
+	private enum CodingKeys: String, CodingKey {
+		case characters
+		case currentPage
+		case pageSize
+		case totalCharacters
+	}
 	
 	func totalPages() -> Int {
 		let result = self.totalCharacters / self.pageSize
@@ -22,19 +29,29 @@ struct Characters : Codable {
 	}
 }
 
-struct Character : Codable, Identifiable {
-	let id : Int
+struct Character: Codable, Identifiable, Hashable, Equatable {
+	let id: Int
 	let name: String?
 	let images: [URL]?
-	let jutsu: [String]?
-	let natureType: [String]?
-	let personal: Personal?
+	
+	// Custom hash(into:) implementation
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(id)
+	}
+	
+	private enum CodingKeys: String, CodingKey {
+		case id
+		case name
+		case images
+	}
+	
 }
 
-struct Personal: Codable{
-	let birthday: String?
-	let sex: String?
-	let affiliation: [String]?
-	let team: [String]?
-	let clan: String?
+func sampleCharacter() -> Character {
+	return Character(id: 1310, name: "Shisui Uchiha", images: [URL(string: "https://static.wikia.nocookie.net/naruto/images/4/4c/Shisui_Uchiha.png")!])
 }
+
+enum CharacterStatus {
+	case initial
+	case success(data: [Character])
+	}

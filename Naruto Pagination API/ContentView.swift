@@ -10,13 +10,13 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
 		TabView{
-			Text("Character View")
+			CharacterView()
 				.tabItem {
 					Label(LocalizedStringKey("characters_label"), systemImage: "person")
 				}
 				.tag(0)
 			
-			Text("Clans View")
+			ClanView()
 				.tabItem {
 					Label(LocalizedStringKey("clans_label"), systemImage: "person.3")
 				}

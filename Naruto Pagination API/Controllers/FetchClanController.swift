@@ -10,7 +10,7 @@ import Foundation
 
 struct FetchClanController {
 	private let baseURL = URL(string: "https://narutodb.xyz/api/clan")!
-	private let limit = 20
+	private let limit = 10
 	
 	func fetchClans(from page: Int) async throws -> Clans{
 		// Create URL components
